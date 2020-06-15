@@ -21,7 +21,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+    - name: Declare some variables
+      id: vars
+      shell: bash
+      run: |
+        echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
     - name: Build and push Docker images
       uses: docker/build-push-action@v1.1.0
       with:
@@ -31,5 +36,5 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         # Docker repository to tag the image with
         repository: tbrowet/docker-sample-app
-        tags: "${GITHUB_REF_NAME}-${GITHUB_SHA::8}"
+        tags: ${{ steps.vars.outputs.branch }}.${{ steps.vars.outputs.sha_short }}"
 
