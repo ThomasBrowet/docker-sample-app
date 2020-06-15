@@ -36,5 +36,5 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         # Docker repository to tag the image with
         repository: tbrowet/docker-sample-app
-        tags: ${{ steps.vars.outputs.branch }}.${{ steps.vars.outputs.sha_short }}"
+        tags: ${{ steps.vars.outputs.branch }}-${{ steps.vars.outputs.sha_short }}"
 
