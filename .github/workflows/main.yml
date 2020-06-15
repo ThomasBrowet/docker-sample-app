@@ -31,5 +31,5 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         # Docker repository to tag the image with
         repository: tbrowet/docker-sample-app
-        tags: latest
+        tags: "${GITHUB_REF_NAME}-${GITHUB_SHA::8}"
 
