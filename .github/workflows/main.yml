@@ -30,4 +30,4 @@ jobs:
         # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         # Docker repository to tag the image with
-        repository: docker-sample-app:"${GITHUB_REF#refs/heads/}.${GITHUB_SHA}"
+        repository: docker-sample-app
