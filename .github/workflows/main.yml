@@ -30,6 +30,6 @@ jobs:
         # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         # Docker repository to tag the image with
-        repository: tbrowet\docker-sample-app
+        repository: tbrowet/docker-sample-app
         tags: latest
 
